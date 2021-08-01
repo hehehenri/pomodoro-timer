@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <title>pomodoro</title>
+    <link rel="stylesheet" href="./styles/global.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">pomodoro</h1>
+    </header>
+    <section>
+        <div class="container second-color">
+            <h2 id="phrase">It's time to work!</h2>
+            <div class="timer">
+                <p id="time">00:00</p> 
+            </div>
+            <div id="progress-bar"section>
+                <div id="bar"></div>
+            </div>
+            <p class="controller" id="play-button">play</p>
+            <audio src="media/notification/sound1.wav" id="notification"></audio>          
+        </div>
+    </section>
+    <div class="theme-container">
+        <div class="theme-menu">
+            <div class="theme-button" id="black-and-white">
+            </div>
+            <div class="theme-button" id="gruvbox">
+            </div>
+            <div class="theme-button" id="nautilus">
+            </div>
+            <div class="theme-button" id="sakura">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <h2 class="title">themes</h2>
+        </div>
+    </footer>
+</body>
+<script src="./scripts/theme.js"></script>
+<script src="./scripts/themesMenuDisplay.js"></script>
+<script src="./scripts/changeTheme.js"></script>
+<script src="scripts/times.js"></script>
+<script src="scripts/pomodoroTimer.js"></script>
+</html>
