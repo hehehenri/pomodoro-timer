@@ -2,8 +2,8 @@ const playButton = document.querySelector("#play-button");
 const bodyTime = document.querySelector("#time");
 const notification = document.querySelector("#notification");
 const phrase = document.querySelector("#phrase");
-const pomodoroTimeInSeconds = minutesToSeconds(2);
-const restTimeInSeconds = minutesToSeconds(1);
+const pomodoroTimeInSeconds = minutesToSeconds(25);
+const restTimeInSeconds = minutesToSeconds(5);
 let pomodoro = false;
 let timerDuration = 0;
 phrase.innerHTML = "Hey, click on play to start!";
@@ -17,8 +17,7 @@ playButton.addEventListener("click", () => {
         bodyTime.innerHTML = secondsToClockFormat(timerDuration);
         phrase.innerHTML = "You should take a break now!";
     }
-    else {
-        pomodoro = true;
+    else {            notification.play();
         timerDuration = pomodoroTimeInSeconds;
         bodyTime.innerHTML = secondsToClockFormat(timerDuration);
         phrase.innerHTML = "It's time to work!";
