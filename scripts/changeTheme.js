@@ -1,31 +1,28 @@
-const themesConfigs = getThemesConfigs();
-const themeButtons = getThemeButtons();
+const themesDiv = document.querySelector(".theme-menu");
+const themeConfigs = getThemesConfigs();
 
-changePageColorsWithButtonClick(themeButtons, themesConfigs);
+createThemeButtons(themeConfigs, themeConfigs);
+
 
 function getThemesConfigs() {
-    const blackAndWhite = Array("white", "black", "black", "black", "black");
-    const gruvboxTheme = Array("#282828", "#fb4934", "#83a598", "#fabd2f", "#b8bb26");
-    const nautilus = Array("#102c4e", "#eac004", "#1ae7ea", "#eac004", "#b8bb26");
-    const sakura = Array("rgba(255,186,200,1)", "white", "white", "white")
-
+    const blackAndWhite = Array("white", "black", "black", "black", "black-and-white");
+    const gruvboxTheme = Array("#282828", "#fb4934", "#83a598", "#fabd2f", "gruvbox");
+    const nautilus = Array("#102c4e", "#eac004", "#1ae7ea", "#eac004", "nautilus");
+    const sakura = Array("rgba(255,186,200,1)", "white", "white", "white", "sakura")
+    
     return Array(blackAndWhite, gruvboxTheme, nautilus, sakura);
 }
 
-function getThemeButtons() {
-    const buttonsParentDiv = document.getElementsByClassName("theme-menu")[0].children;
-    let themeDivs = Array();
-    for(i=0; i<buttonsParentDiv.length; i++) {
-        themeDivs.push(buttonsParentDiv[i]);
-    }
-    return themeDivs;
-}
-
-function changePageColorsWithButtonClick(buttons, configs) {
-    buttons.forEach((button, index) => {
-        button.addEventListener("click", ()=> {
+function createThemeButtons(themes, configs) {
+    themes.forEach((theme, index) => {
+        //console.log("div.theme-menu#"+theme[4])
+        themeDiv = document.createElement("div");
+        themeDiv.className = "theme-button";
+        themeDiv.id = theme[4];
+        themeDiv.addEventListener("click", ()=> {
             changePageColor(configs[index]);
-        })
+        });
+        themesDiv.appendChild(themeDiv);
     });
 }
 

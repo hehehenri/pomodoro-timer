@@ -1,4 +1,4 @@
-const themeButton = document.querySelector("footer .container");
+const themeButton = document.querySelector("footer .container h2");
 const themeMenu = document.querySelector(".theme-container");
 
 themeButton.addEventListener("click", () => {

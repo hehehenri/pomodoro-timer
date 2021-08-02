@@ -14,12 +14,10 @@ playButton.addEventListener("click", () => {
     if(canStart) {
         const initialTime = getCurrentDate();
         if(pomodoro) {
-            pomodoro = false;
             timerDuration = restTimeInSeconds;
             bodyTime.innerHTML = secondsToClockFormat(timerDuration);
             phrase.innerHTML = "You should take a break now!";
         } else {
-            notification.play();
             timerDuration = pomodoroTimeInSeconds;
             bodyTime.innerHTML = secondsToClockFormat(timerDuration);
             phrase.innerHTML = "It's time to work!";
@@ -31,13 +29,24 @@ playButton.addEventListener("click", () => {
             const pastTimeInSeconds = millisecondsToSeconds(pastTimeInMilliseconds);
             const remainingTimeInSeconds = timerDuration - pastTimeInSeconds;
             const remaingngTimeInClockFormat = secondsToClockFormat(remainingTimeInSeconds);
+            const progressBarPercentage = getProgressBarPercentage(timerDuration, pastTimeInSeconds);
             bodyTime.innerHTML = remaingngTimeInClockFormat;
+            progressBar.style.width = progressBarPercentage;
             if(remainingTimeInSeconds == 0) {
                 clearInterval(teste);
                 notification.play();
                 canStart = true;
-                pomodoro ? pomodoro = false : pomodoro = true;
+                if(pomodoro) {
+                    pomodoro = false;
+                    phrase.innerHTML = "It's time to work!";
+                }
+                else {
+                    pomodoro = true;
+                    phrase.innerHTML = "You should take a break now!";
+                }
             }
+
+
         }, 1000)
     }
 })
