@@ -8,6 +8,10 @@ Pomodoro technique is a time management method which consists in the use of a ti
 
 The pomodoro-timer was an idea developed by me and for me, in the attempt to aplly aply the study technique and then, increase my own productivity and practice my web front-end skills.
 
+## Website
+
+The pomodoro-timer is actualy uploaded in vercel: <https://pomodoro-timer-nu.vercel.app/>
+
 ## Features
 
 - [x] Themes
